@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vida Financeira RP | Jogo de Vida Financeira</title>
+  <meta name="description" content="Jogo real de vida financeira com banco, trabalho, casas, impostos, empréstimos, investimentos, score e evolução social." />
+  <meta name="theme-color" content="#070A18" />
+  <meta property="og:title" content="Vida Financeira RP" />
+  <meta property="og:description" content="Cresça financeiramente, trabalhe, pague contas, invista, compre casas e evolua socialmente." />
+  <meta property="og:type" content="website" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-orb orb-a"></div>
+  <div class="background-orb orb-b"></div>
+
+  <div id="toastArea" class="toast-area"></div>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">VF</div>
+        <div>
+          <h1>Vida Financeira RP</h1>
+          <span id="versionBadge">v1.0.0</span>
+        </div>
+      </div>
+
+      <button class="nav-btn active" data-tab="home">🏠 Home</button>
+      <button class="nav-btn" data-tab="bank">🏦 Banco</button>
+      <button class="nav-btn" data-tab="work">💼 Trabalho</button>
+      <button class="nav-btn" data-tab="taxes">🧾 Impostos</button>
+      <button class="nav-btn" data-tab="loans">💳 Empréstimos</button>
+      <button class="nav-btn" data-tab="houses">🏘️ Casas</button>
+      <button class="nav-btn" data-tab="investments">📈 Investimentos</button>
+      <button class="nav-btn" data-tab="profile">👤 Perfil</button>
+      <button class="nav-btn" data-tab="ranking">🏆 Ranking</button>
+      <button class="nav-btn" data-tab="history">📜 Histórico</button>
+      <button class="nav-btn" data-tab="admin">👑 Admin / CEO</button>
+
+      <div class="sidebar-footer">
+        <button id="saveBtn" class="ghost-btn">Salvar</button>
+        <button id="resetBtn" class="danger-btn">Reset</button>
+      </div>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Jogo de vida financeira • pronto para GitHub Pages</p>
+          <h2 id="tabTitle">Home</h2>
+        </div>
+        <div class="top-actions">
+          <span id="clockBadge" class="pill">--:--</span>
+          <span id="scoreBadge" class="pill success">Score 550</span>
+          <button id="syncBtn" class="primary-btn">Sincronizar agora</button>
+        </div>
+      </header>
+
+      <section id="setupPanel" class="setup-panel hidden">
+        <div class="setup-card">
+          <h2>Comece sua vida financeira</h2>
+          <p>Crie seu jogador local. O progresso fica salvo no navegador.</p>
+          <div class="form-row">
+            <input id="playerNameInput" placeholder="Nome do jogador" maxlength="28" />
+            <select id="companySelect"></select>
+          </div>
+          <button id="createPlayerBtn" class="primary-btn wide">Criar jogador</button>
+        </div>
+      </section>
+
+      <div id="gamePanel" class="game-panel">
+        <section id="home" class="tab active"></section>
+        <section id="bank" class="tab"></section>
+        <section id="work" class="tab"></section>
+        <section id="taxes" class="tab"></section>
+        <section id="loans" class="tab"></section>
+        <section id="houses" class="tab"></section>
+        <section id="investments" class="tab"></section>
+        <section id="profile" class="tab"></section>
+        <section id="ranking" class="tab"></section>
+        <section id="history" class="tab"></section>
+        <section id="admin" class="tab"></section>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h3 id="modalTitle">Confirmar</h3>
+      <p id="modalText"></p>
+      <div class="modal-actions">
+        <button id="modalCancel" class="ghost-btn">Cancelar</button>
+        <button id="modalConfirm" class="primary-btn">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>

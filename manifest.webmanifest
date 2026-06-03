@@ -1,0 +1,17 @@
+{
+  "name": "Vida Financeira RP",
+  "short_name": "VF RP",
+  "description": "Jogo de vida financeira com banco, trabalho, casas, empréstimos, impostos e investimentos.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070A18",
+  "theme_color": "#070A18",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
