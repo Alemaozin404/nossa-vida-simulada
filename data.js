@@ -2,7 +2,7 @@
    Dados base separados para facilitar expansão futura. */
 
 const GAME_CONFIG = {
-  version: '2.0.0',
+  version: '2.5.0',
   saveKey: 'vidaFinanceiraRP.save.v1',
   storageMode: 'local-first',
   apiBaseUrl: '', // Futuro backend opcional. GitHub Pages usa localStorage.

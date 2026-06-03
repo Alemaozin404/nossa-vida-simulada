@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vida-financeira-rp-v2';
+const CACHE_NAME = 'vida-financeira-rp-v2.5';
 const ASSETS = [
   './', './index.html', './style.css', './data.js', './script.js', './manifest.webmanifest', './assets/icon.svg'
 ];

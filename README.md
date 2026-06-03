@@ -1,125 +1,130 @@
-# Vida Financeira RP v2.0.0
+# Vida Financeira RP v2.5.0
 
-Jogo de vida financeira em HTML, CSS e JavaScript, pronto para publicar no GitHub Pages.
+Jogo web real de vida financeira em HTML, CSS e JavaScript, preparado para GitHub Pages e expansão futura com backend/multiplayer.
 
-O projeto não é apenas uma tela bonita: ele possui sistemas conectados de banco, trabalho, XP, cargos, promoções, empréstimos, impostos, casas, contas, atraso, investimentos, score, histórico, ranking, conquistas, notificações e salvamento local.
+## O que é
 
-## O que funciona nesta versão
+O jogador começa com pouco dinheiro e precisa crescer financeiramente trabalhando, pagando contas, cuidando do score, pegando empréstimos com responsabilidade, alugando/comprando casas, investindo e evoluindo socialmente.
 
-- Cadastro local de jogador.
-- Saldo inicial e evolução financeira.
-- Home com resumo da vida do jogador.
-- Banco com visão geral, dívidas, contas, empréstimos, casas, investimentos e histórico.
-- Trabalho com salário por cargo.
-- Tarefas pagando 10% do salário atual.
-- Limite de 10 tarefas a cada 24 horas.
-- XP e promoção de cargo.
-- Promoções altas com aprovação no painel Admin / CEO.
-- Empréstimos com taxa de 5% a cada 3 horas.
-- Dívidas, taxas, multas e pagamento pela aba Impostos.
-- Casas com aluguel e contas a cada 10 horas.
-- Atraso de casa/contas com aumento de 3% após 5 horas.
-- Proposta de compra de 50% da casa após 5 pagamentos corretos.
-- Compra gradual até 100%.
-- Perda da casa com devolução de 5% em dívida grave.
-- Investimentos com ciclos de valorização e risco.
-- Score financeiro afetando crescimento.
-- Histórico financeiro completo.
-- Notificações visuais.
-- Ranking local com NPCs.
-- Salvamento em `localStorage`.
-- Cálculo de tempo offline ao voltar ao jogo.
-- PWA básico com `manifest.webmanifest` e `sw.js`.
-- `server.js` opcional para rodar localmente ou em hospedagens Node.
+A versão atual é **local-first**: funciona direto no navegador e salva o progresso no `localStorage`. Não usa dinheiro real. O jogo é real como software funcional, mas a economia é fictícia dentro do jogo.
 
-## Como rodar localmente sem servidor
+## Como rodar localmente
 
-Abra o arquivo:
+Abra o arquivo `index.html` no navegador.
+
+Para testar como servidor local:
+
+```bash
+npx serve .
+```
+
+ou:
+
+```bash
+python -m http.server 8080
+```
+
+## Como publicar no GitHub Pages
+
+Suba o conteúdo da pasta do projeto para o GitHub:
 
 ```txt
 index.html
+style.css
+script.js
+data.js
+README.md
+404.html
+.nojekyll
+manifest.webmanifest
+sw.js
+assets/
+.github/
 ```
 
-O jogo já funciona no navegador usando salvamento local.
+Depois vá em **Settings > Pages** e publique pela branch `main`, pasta `/root`.
 
-## Como rodar com servidor local Node.js
+## Sistemas existentes
 
-Instale as dependências:
+- Cadastro local de jogador
+- Home com painel financeiro
+- Banco com extrato, dívidas, contas, empréstimos, casas e investimentos
+- Trabalho com salário, XP, cargos e promoção
+- Limite de 10 tarefas a cada 24 horas
+- Energia, cansaço e desempenho profissional
+- Empréstimos com taxa obrigatória de 5% a cada 3 horas
+- Simulador de empréstimos antes da confirmação
+- Casas com aluguel/contas a cada 10 horas
+- Multa de 3% após 5 horas de atraso
+- Proposta de compra de 50% após 5 pagamentos corretos
+- Compra total da casa
+- Venda, reforma e aluguel para NPC
+- Impostos e dívidas com pagamento total/parcial
+- Investimentos com ciclos, risco e gráfico simples
+- Eventos de mercado
+- Score financeiro
+- Metas diárias
+- Conquistas
+- Loja com itens funcionais
+- Histórico com filtro e busca
+- Ranking local
+- Admin/CEO com aprovação de promoções e ajustes
+- Notificações
+- Salvamento automático/manual
+- Exportar/importar save
+- Backup local
+- Cálculo de tempo offline
+- Estrutura preparada para backend futuro
 
-```bash
-npm install
-```
-
-Inicie o servidor:
-
-```bash
-npm start
-```
-
-Depois abra:
+## Fórmulas principais
 
 ```txt
-http://localhost:3000
+ganhoPorTarefa = salarioAtual * 0.10
+limiteDiarioTarefas = 10 tarefas / 24 horas
+taxaEmprestimo = valorEmprestimo * 0.05 a cada 3 horas
+atrasoCasa = valorAtual + 3% após 5 horas de atraso
+compra50 = liberada após 5 pagamentos corretos
+devolucaoCasaPerdida = valorTotalCasa * 0.05
+lucroAluguel = aluguelRecebido - contasDaCasa
 ```
 
-## Publicar no GitHub Pages
+## Atualização v2.5.0
 
-1. Crie um repositório no GitHub.
-2. Envie todos os arquivos do projeto para a raiz do repositório.
-3. Vá em **Settings > Pages**.
-4. Em **Build and deployment**, escolha **GitHub Actions**.
-5. O workflow `.github/workflows/pages.yml` fará o deploy automaticamente.
+Esta atualização preserva a base anterior e adiciona sistemas novos sem recriar o jogo do zero:
 
-Também é possível usar **Deploy from a branch** escolhendo a branch `main` e a pasta `/root`.
+- Visual mais premium e dashboard mais vivo
+- Cards inteligentes na Home
+- Central bancária mais completa
+- Pagamento parcial de dívidas
+- Energia, fadiga e desempenho no trabalho
+- Tarefas raras/urgentes com bônus real
+- Metas diárias com recompensa
+- Loja com itens úteis e efeitos reais
+- Eventos de mercado para investimentos
+- Gráfico simples de valorização
+- Save exportável/importável
+- Histórico filtrável e pesquisável
+- Melhor preparação para multiplayer futuro
 
-## Importante sobre servidor
+## Backend/multiplayer futuro
 
-GitHub Pages hospeda apenas arquivos estáticos: HTML, CSS, JS, imagens e arquivos públicos.
+O GitHub Pages hospeda apenas o front-end. Para multiplayer real, use uma das opções:
 
-Isso significa que o GitHub Pages não executa `server.js`, banco de dados real ou Node.js.
+- Supabase Auth + Postgres + Realtime
+- Firebase Auth + Firestore/Realtime Database
+- Node.js em Render/Railway/VPS
 
-Por isso esta versão foi feita em modo **local-first**:
+O ideal é mover regras sensíveis para o servidor:
 
-- No GitHub Pages, o jogo funciona usando `localStorage`.
-- Para multiplayer, login real, banco de dados online e rankings globais, use o front-end no GitHub Pages e hospede o backend em Render, Railway, Fly.io, VPS ou outro serviço Node.js.
+- saldo
+- XP
+- empréstimos
+- juros
+- pagamentos
+- ranking global
+- promoções CEO
+- casas entre jogadores
 
-O arquivo `server.js` já está incluído como base opcional para evolução futura.
+## Observação importante
 
-## Estrutura
-
-```txt
-vida_financeira_rp/
-├── index.html
-├── style.css
-├── data.js
-├── script.js
-├── manifest.webmanifest
-├── sw.js
-├── 404.html
-├── server.js
-├── package.json
-├── README.md
-├── assets/
-│   └── icon.svg
-├── server/
-│   └── database.json
-└── .github/
-    └── workflows/
-        └── pages.yml
-```
-
-## Próximas atualizações recomendadas
-
-- Login com conta real.
-- Backend com autenticação.
-- Banco de dados online, como PostgreSQL, MongoDB ou Firebase.
-- Ranking global real.
-- Multiplayer com empresas controladas por jogadores.
-- Mercado imobiliário entre jogadores.
-- Eventos econômicos semanais.
-- Painel admin protegido por senha.
-- Sistema anti-cheat com validação no servidor.
-
-## Observação de desenvolvimento
-
-Ao atualizar o projeto, não remova sistemas existentes sem necessidade. A ideia é evoluir por módulos, mantendo compatibilidade com saves antigos sempre que possível.
+Não apague o save do jogador sem permissão. O sistema tem migração para versões antigas e tenta preservar os dados existentes.
